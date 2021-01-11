@@ -1,5 +1,5 @@
 
-class Queue {
+export default class Queue {
   constructor() {
     this.count = 0
     // 用来追踪第一个元素
@@ -13,7 +13,7 @@ class Queue {
   }
 
   dequeue() {
-    if (this.isEmpty()) return undefined
+    if (this.isEmpty()) return
 
     const result = this.items[this.lowestCount]
     delete this.items[this.lowestCount]
@@ -25,7 +25,7 @@ class Queue {
   }
 
   peek() {
-    if (this.isEmpty()) return undefined
+    if (this.isEmpty()) return
     return this.items[this.lowestCount]
   }
 
