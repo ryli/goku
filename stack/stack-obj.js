@@ -13,7 +13,7 @@ push(element) {
 }
 
 pop() {
-  if (this.isEmpty()) return undefined
+  if (this.isEmpty()) return
 
   this.count--
   const result = this.items[this.count]
@@ -22,7 +22,7 @@ pop() {
 }
 
 peek() {
-  if (this.isEmpty()) return undefined
+  if (this.isEmpty()) return
 
   return this.items[this.count - 1]
 }
