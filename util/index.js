@@ -13,3 +13,21 @@ export function defaultCompare(a, b) {
 
   return a < b ? Compare.LESS_EQUAL : Compare.BIGGER_EQUAL
 }
+
+export function defaultToString(item) {
+  let ret = ''
+  switch (item) {
+    case null:
+      ret = 'NULL'
+      break
+    case undefined:
+      ret = 'UNDEFINED'
+      break
+    case typeof item === 'string' || item instanceof String:
+      ret = `${item}`
+      break
+    default:
+      ret = item.toString()
+  }
+  return ret
+}
