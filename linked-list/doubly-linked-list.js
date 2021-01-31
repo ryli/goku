@@ -40,6 +40,7 @@ export default class DoublyLinkedList extends LinkedList {
       current.prev = node
       node.prev = prev
     }
+
     this.count++
     return true
   }

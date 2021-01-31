@@ -1,5 +1,5 @@
 /**
- *
+ * 链表
  */
 import { defaultEquals } from '../util/index.js'
 import { Node } from './models/linked-list-models'

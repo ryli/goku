@@ -23,7 +23,8 @@ export default class CircularLinkedList extends LinkedList {
         node.next = this.head
       } else {
         node.next = current
-        current = this.getElementAt(this.size())
+        // 最后的元素
+        current = this.getElementAt(this.size() - 1)
         // 更新最后一个元素
         this.head = node
         current.next = this.head

@@ -1,5 +1,5 @@
 export class Node {
-  constructor(element, next = undefined) {
+  constructor(element, next) {
     this.element = element
     this.next = next
   }
