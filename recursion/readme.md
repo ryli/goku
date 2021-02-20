@@ -17,6 +17,11 @@ function factorial(num) {
   return num * factorial(num -1)
 }
 
+function factorial(num, result = 1) {
+  if (num === 1 || num === 0) return result
+  return factorial(num - 1, num * result)
+}
+
 // 斐波那契
 function fibonacci(length) {
   if (length === 0) return 0
@@ -24,7 +29,7 @@ function fibonacci(length) {
   return fibonacci(length - 1) + fibonacci(length - 2)
 }
 
-// 记忆化优化版斐波那契
+// 避免重复计算
 function fibonacciMemoization(length) {
   const fibonacci = (length, memo = [0, 1]) => memo[length] === undefined
     ? memo[length] = fibonacci(length - 1, memo) + fibonacci(length - 2, memo)
@@ -43,11 +48,3 @@ function fibonacciMemoization(length) {
 
 为什么要用递归？递归更快吗？
 不，只是它的实现更简单，容易理解。
-
-```js
-// 尾递归优化版
-function factorial(num, result = 1) {
-  if (num === 1 || num === 0) return result
-  return factorial(num - 1, num * result)
-}
-```

@@ -5,7 +5,7 @@ export class Node {
   }
 }
 
-export class doublyNode extends Node {
+export class DoublyNode extends Node {
   constructor(element, next, prev) {
     super(element, next)
     this.prev = prev

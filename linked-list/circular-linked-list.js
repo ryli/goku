@@ -49,7 +49,7 @@ export default class CircularLinkedList extends LinkedList {
         this.head = undefined
       } else {
         const removed = this.head
-        current = this.getElementAt(this.size())
+        current = this.getElementAt(this.size() - 1)
         this.head = this.head.next
         current.next = this.head
         current = removed

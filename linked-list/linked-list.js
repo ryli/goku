@@ -2,7 +2,7 @@
  * 链表
  */
 import { defaultEquals } from '../util/index.js'
-import { Node } from './models/linked-list-models'
+import { Node } from './models/linked-list-models.js'
 
 export default class LinkedList {
   constructor(equalsFn = defaultEquals) {
