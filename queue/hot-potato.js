@@ -8,10 +8,11 @@ function hotPotato(elementsList, num) {
   // 被淘汰的数据
   const eliminatedList = []
 
-  elementsList.forEach(element => queue.enqueue(element))
+  elementsList.forEach(i => queue.enqueue(i))
 
   while (queue.size() > 1) {
     for (let i = 0; i < num; i++) {
+      // 模拟击鼓传花
       queue.enqueue(queue.dequeue())
     }
     eliminatedList.push(queue.dequeue())

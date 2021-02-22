@@ -4,6 +4,7 @@
 import Stack from './stack-obj.js'
 
 function decimalToBinary(decNumber, base) {
+  // 存储余数
   const remStack = new Stack()
   const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   let number = decNumber
@@ -13,8 +14,11 @@ function decimalToBinary(decNumber, base) {
   if (base < 2 || base > 36) return ''
 
   while (number > 0) {
+    // 余数
     rem = Math.floor(number % base)
+    // 将余数入栈
     remStack.push(rem)
+    // 更新 number
     number = Math.floor(number / base)
   }
 

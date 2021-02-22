@@ -24,7 +24,7 @@ export default class BinarySearchTree {
     } else {
       node.right === null
         ? node.right = new Node(key)
-        : this.insert(Node.right, key)
+        : this.insertNode(node.right, key)
     }
   }
 
@@ -66,9 +66,9 @@ export default class BinarySearchTree {
     this.postOrderTraverseNode(this.root, cb)
   }
 
-  postOrderTraverseNodeNode(node, cb) {
+  postOrderTraverseNode(node, cb) {
     if (node !== null) {
-      this.postOrderTraverse(node.left, cb)
+      this.postOrderTraverseNode(node.left, cb)
       this.postOrderTraverseNode(node.right, cb)
       cb(node.key)
     }
@@ -152,3 +152,15 @@ export default class BinarySearchTree {
     return node
   }
 }
+
+const bst = new BinarySearchTree()
+
+const nodeList = [11, 7, 15, 5, 9, 13, 20, 3, 6, 8, 10, 12, 14, 18, 25]
+const cb = console.log
+nodeList.forEach(v => bst.insert(v))
+
+bst.inOrderTraverse(cb)
+console.log('-'.repeat(30))
+bst.preOrderTraverse(cb)
+console.log('-'.repeat(30))
+bst.postOrderTraverse(cb)
