@@ -37,6 +37,26 @@ function fibonacciMemoization(length) {
   return fibonacci(length)
 }
 
+// author: justjavac
+const www = new Proxy(new URL('https://www'), {
+  get: function get(target, prop) {
+    let o = Reflect.get(target, prop)
+
+    if (typeof o === 'function') return o.bind(target)
+
+    if (typeof prop !== 'string') return o
+
+    if (prop === 'then') return Promise.prototype.then.bind(fetch(target))
+
+    target = new URL(target)
+    target.hostname += `.${prop}`
+
+    return new Proxy(target, { get })
+  }
+})
+
+// 200
+www.baidu.com.then(res => console.log(res.statusCode))
 ```
 
 函数调用自身，称为递归。

@@ -19,7 +19,7 @@ class Queue {
   }
 
   // 返回第一个数据
-  front() {
+  peek() {
     if (this.isEmpty()) return
     return this.items[0]
   }
@@ -36,7 +36,19 @@ class Queue {
     return this.items.length
   }
 
-  print() {
-    console.log(this.items.toString())
+  toString() {
+    return this.items.toString()
   }
 }
+
+const queue = new Queue()
+for (let i = 1; i < 10; i += 1) {
+  queue.enqueue(i)
+}
+console.log(queue.toString())
+queue.dequeue()
+console.log(queue.toString())
+queue.enqueue(10)
+console.log(queue.toString())
+queue.dequeue()
+console.log(queue.toString())

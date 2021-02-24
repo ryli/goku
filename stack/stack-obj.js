@@ -51,27 +51,27 @@ toString() {
 }
 }
 
-const stack = new Stack()
+// const stack = new Stack()
 
-// true
-console.log(stack.isEmpty())
+// // true
+// console.log(stack.isEmpty())
 
-stack.push(5)
-stack.push(8)
+// stack.push(5)
+// stack.push(8)
 
-// 8
-console.log(stack.peek())
+// // 8
+// console.log(stack.peek())
 
-stack.push(11)
-// 3
-console.log(stack.size())
+// stack.push(11)
+// // 3
+// console.log(stack.size())
 
-stack.pop()
-// 8
-console.log(stack.pop())
-// 1
-console.log(stack.size())
+// stack.pop()
+// // 8
+// console.log(stack.pop())
+// // 1
+// console.log(stack.size())
 
-stack.clear()
-// 0
-console.log(stack.size())
+// stack.clear()
+// // 0
+// console.log(stack.size())
