@@ -24,7 +24,7 @@ const l = new LinkedList()
 for (let i = 1; i < 10; i += 1) {
   l.push(i)
 }
-console.log(l.toString())
+// console.log(l.toString())
 
 const newHead = reverseN(l.head, 4)
-print(newHead)
+// print(newHead)

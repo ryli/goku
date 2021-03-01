@@ -1,5 +1,7 @@
 import { Compare, defaultCompare } from '../util/index.js'
 import { Node } from './models/node.js'
+import Stack from '../stack/stack-obj.js'
+import Queue from '../queue/queue-obj.js'
 
 export default class BinarySearchTree {
   constructor(compareFn = defaultCompare) {
@@ -50,6 +52,7 @@ export default class BinarySearchTree {
   // 节点本身，然后左节点，最后右节点
   preOrderTraverse(cb) {
     this.preOrderTraverseNode(this.root, cb)
+    // this.preOrderTraverseNodeStack(this.root, cb)
   }
 
   preOrderTraverseNode(node, cb) {
@@ -57,6 +60,26 @@ export default class BinarySearchTree {
       cb(node.key)
       this.preOrderTraverseNode(node.left, cb)
       this.preOrderTraverseNode(node.right, cb)
+    }
+  }
+
+  // 非递归写法
+  preOrderTraverseNodeStack(node, cb) {
+    const stack = new Stack()
+    let curr = node
+
+    while (curr !== null || !stack.isEmpty()) {
+      // 迭代左节点，并入栈
+      while (curr !== null) {
+        cb(curr.key)
+        stack.push(curr)
+        curr = curr.left
+      }
+
+      // 如果没有左节点，则弹出栈顶节点，访问右节点
+      if (!stack.isEmpty()) {
+        curr = stack.pop().right
+      }
     }
   }
 
@@ -71,6 +94,19 @@ export default class BinarySearchTree {
       this.postOrderTraverseNode(node.left, cb)
       this.postOrderTraverseNode(node.right, cb)
       cb(node.key)
+    }
+  }
+
+  // 层序遍历
+  levelOrderTraverse(cb) {
+    const queue = new Queue()
+    queue.enqueue(this.root)
+
+    while (!queue.isEmpty()) {
+      const curr = queue.dequeue()
+      cb(curr.key)
+      if (curr.left !== null) queue.enqueue(curr.left)
+      if (curr.right !== null) queue.enqueue(curr.right)
     }
   }
 
@@ -159,8 +195,11 @@ const nodeList = [11, 7, 15, 5, 9, 13, 20, 3, 6, 8, 10, 12, 14, 18, 25]
 const cb = console.log
 nodeList.forEach(v => bst.insert(v))
 
-bst.inOrderTraverse(cb)
-console.log('-'.repeat(30))
+console.log('先序：', '-'.repeat(30))
 bst.preOrderTraverse(cb)
-console.log('-'.repeat(30))
+console.log('中序：', '-'.repeat(30))
+bst.inOrderTraverse(cb)
+console.log('后序：', '-'.repeat(30))
 bst.postOrderTraverse(cb)
+console.log('层序：', '-'.repeat(30))
+bst.levelOrderTraverse(cb)
