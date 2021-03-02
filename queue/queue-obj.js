@@ -55,14 +55,14 @@ export default class Queue {
 }
 
 
-const queue = new Queue()
-for (let i = 1; i < 10; i += 1) {
-  queue.enqueue(i)
-}
-console.log(queue.toString())
-queue.dequeue()
-console.log(queue.toString())
-queue.enqueue(10)
-console.log(queue.toString())
-queue.dequeue()
-console.log(queue.toString())
+// const queue = new Queue()
+// for (let i = 1; i < 10; i += 1) {
+//   queue.enqueue(i)
+// }
+// console.log(queue.toString())
+// queue.dequeue()
+// console.log(queue.toString())
+// queue.enqueue(10)
+// console.log(queue.toString())
+// queue.dequeue()
+// console.log(queue.toString())

@@ -190,16 +190,23 @@ export default class BinarySearchTree {
 }
 
 const bst = new BinarySearchTree()
+let list = []
 
 const nodeList = [11, 7, 15, 5, 9, 13, 20, 3, 6, 8, 10, 12, 14, 18, 25]
-const cb = console.log
+const cb = v => list.push(v)
 nodeList.forEach(v => bst.insert(v))
 
-console.log('先序：', '-'.repeat(30))
 bst.preOrderTraverse(cb)
-console.log('中序：', '-'.repeat(30))
+console.log('先序：', list.toString())
+
+list = []
 bst.inOrderTraverse(cb)
-console.log('后序：', '-'.repeat(30))
+console.log('中序：', list.toString())
+
+list = []
 bst.postOrderTraverse(cb)
-console.log('层序：', '-'.repeat(30))
+console.log('后序：', list.toString())
+
+list = []
 bst.levelOrderTraverse(cb)
+console.log('层序：', list.toString())
